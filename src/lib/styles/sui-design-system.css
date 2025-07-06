@@ -1,0 +1,172 @@
+/* src/lib/styles/sui-design-system.css */
+
+:root {
+  /* === COLORS === */
+  /* Background colors */
+  --sui-background: oklch(1 0 0);
+  --sui-foreground: oklch(0.145 0 0);
+  
+  /* Primary colors */
+  --sui-primary: oklch(0.216 0.006 56.043);
+  --sui-primary-foreground: oklch(0.985 0.001 106.423);
+  
+  /* Secondary colors */
+  --sui-secondary: oklch(0.97 0.001 106.424);
+  --sui-secondary-foreground: oklch(0.216 0.006 56.043);
+  
+  /* Accent colors */
+  --sui-accent: oklch(0.97 0.001 106.424);
+  --sui-accent-foreground: oklch(0.205 0 0);
+  
+  /* Muted colors */
+  --sui-muted: oklch(0.97 0.001 106.424);
+  --sui-muted-foreground: oklch(0.553 0.013 58.071);
+  
+  /* Border and input */
+  --sui-border: oklch(0.922 0 0);
+  --sui-input: oklch(0.922 0 0);
+  --sui-ring: oklch(0.708 0 0);
+  
+  /* Popover colors */
+  --sui-popover: oklch(1 0 0);
+  --sui-popover-foreground: oklch(0.145 0 0);
+  
+  /* Card colors */
+  --sui-card: oklch(1 0 0);
+  --sui-card-foreground: oklch(0.145 0 0);
+  
+  /* Status colors */
+  --sui-destructive: oklch(0.577 0.245 27.325);
+  --sui-destructive-foreground: oklch(0.985 0.001 106.423);
+  --sui-positive: oklch(0.862 0.127 146.2);
+  --sui-positive-foreground: oklch(0.145 0 0);
+  --sui-warning: oklch(0.708 0.168 83.87);
+  --sui-warning-foreground: oklch(0.145 0 0);
+  
+  /* === RADII === */
+  --sui-radius: 12px;
+  --sui-radius-xs: calc(var(--sui-radius) - 8px);
+  --sui-radius-sm: calc(var(--sui-radius) - 4px);
+  --sui-radius-md: calc(var(--sui-radius) - 2px);
+  --sui-radius-lg: var(--sui-radius);
+  --sui-radius-xl: calc(var(--sui-radius) + 4px);
+  --sui-radius-2xl: calc(var(--sui-radius) + 8px);
+  
+  /* === TYPOGRAPHY === */
+  --sui-font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --sui-font-mono: ui-monospace, SFMono-Regular, 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  
+  /* Font weights */
+  --sui-font-weight-normal: 400;
+  --sui-font-weight-medium: 500;
+  --sui-font-weight-semibold: 600;
+  --sui-font-weight-bold: 700;
+  
+  /* Font sizes */
+  --sui-font-size-xs: 0.75rem;
+  --sui-font-size-sm: 0.875rem;
+  --sui-font-size-base: 1rem;
+  --sui-font-size-lg: 1.125rem;
+  --sui-font-size-xl: 1.25rem;
+  --sui-font-size-2xl: 1.5rem;
+  
+  /* Line heights */
+  --sui-line-height-none: 1;
+  --sui-line-height-tight: 1.25;
+  --sui-line-height-normal: 1.5;
+  --sui-line-height-relaxed: 1.625;
+  
+  /* === SPACING === */
+  --sui-space-1: 0.25rem;
+  --sui-space-2: 0.5rem;
+  --sui-space-3: 0.75rem;
+  --sui-space-4: 1rem;
+  --sui-space-5: 1.25rem;
+  --sui-space-6: 1.5rem;
+  --sui-space-8: 2rem;
+  --sui-space-10: 2.5rem;
+  --sui-space-12: 3rem;
+  --sui-space-16: 4rem;
+  
+  /* === SHADOWS === */
+  --sui-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --sui-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --sui-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --sui-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --sui-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  /* === ANIMATIONS === */
+  --sui-duration-fast: 150ms;
+  --sui-duration-normal: 300ms;
+  --sui-duration-slow: 500ms;
+  
+  --sui-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --sui-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --sui-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* === Z-INDEX === */
+  --sui-z-dropdown: 1000;
+  --sui-z-modal: 1050;
+  --sui-z-popover: 1060;
+  --sui-z-tooltip: 1070;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --sui-background: oklch(0.08 0 0);
+    --sui-foreground: oklch(0.98 0 0);
+    --sui-primary: oklch(0.7 0.14 231);
+    --sui-primary-foreground: oklch(0.08 0 0);
+    --sui-secondary: oklch(0.15 0.02 286);
+    --sui-secondary-foreground: oklch(0.98 0 0);
+    --sui-accent: oklch(0.15 0.02 286);
+    --sui-accent-foreground: oklch(0.98 0 0);
+    --sui-muted: oklch(0.15 0.02 286);
+    --sui-muted-foreground: oklch(0.65 0.02 286);
+    --sui-border: oklch(0.15 0.02 286);
+    --sui-input: oklch(0.15 0.02 286);
+    --sui-ring: oklch(0.7 0.14 231);
+    --sui-popover: oklch(0.08 0 0);
+    --sui-popover-foreground: oklch(0.98 0 0);
+    --sui-card: oklch(0.08 0 0);
+    --sui-card-foreground: oklch(0.98 0 0);
+  }
+}
+
+/* Base reset for Sui components */
+.sui-component {
+  box-sizing: border-box;
+  font-family: var(--sui-font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.sui-component *,
+.sui-component *::before,
+.sui-component *::after {
+  box-sizing: inherit;
+}
+
+/* Focus ring styles */
+.sui-focus-ring:focus-visible {
+  outline: 2px solid var(--sui-ring);
+  outline-offset: 2px;
+}
+
+.sui-focus-ring:focus {
+  outline: none;
+}
+
+/* Utility classes */
+.sui-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

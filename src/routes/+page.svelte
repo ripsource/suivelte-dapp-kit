@@ -42,7 +42,17 @@
   function handleRetryAutoConnect() {
     autoConnectManager.retry();
   }
+
+  function check_current_wallet() {
+    if (isConnected && currentWallet) {
+      console.log(currentAccount?.address);
+    } else {
+      console.log("No wallet connected");
+    }
+  }
 </script>
+
+<button onclick={check_current_wallet}>check current wallet</button>
 
 <svelte:head>
   <title>Sui Svelte Kit Demo</title>
@@ -135,7 +145,7 @@
       <div class="connection-demo">
         <div class="demo-group">
           <h3>Primary Button</h3>
-          <ConnectButton />
+          <ConnectButton variant="primary" />
         </div>
 
         <div class="demo-group">

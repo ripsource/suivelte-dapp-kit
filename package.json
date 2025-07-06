@@ -33,7 +33,7 @@
   },
   "peerDependencies": {
     "@mysten/sui": "^1.35.0",
-    "@mysten/wallet-standard": "^0.16.0",
+    "@mysten/wallet-standard": "^0.16.4",
     "svelte": "^5.0.0"
   },
   "devDependencies": {
@@ -74,5 +74,9 @@
   "bugs": {
     "url": "https://github.com/rippy/sui-svelte-kit/issues"
   },
-  "homepage": "https://github.com/rippy/sui-svelte-kit#readme"
+  "homepage": "https://github.com/rippy/sui-svelte-kit#readme",
+  "dependencies": {
+    "@wallet-standard/ui": "^1.0.1",
+    "lit": "^3.3.0"
+  }
 }

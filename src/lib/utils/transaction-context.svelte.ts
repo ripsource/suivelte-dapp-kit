@@ -1,63 +1,70 @@
-// src/lib/utils/transaction-context.svelte.ts
+// src/lib/utils/-transaction-context.svelte.ts
 import type { SuiClient } from "@mysten/sui/client";
 import { getSuiClientContext } from "../stores/sui-client.svelte.js";
+import { walletStore } from "../stores/wallet.svelte.js";
+
+interface TransactionContextState {
+  client: SuiClient;
+  network: string;
+  currentAccount: string | null;
+  supportedIntents: string[];
+}
 
 /**
- * Transaction context wrapper that provides SuiClient context
- * to transaction actions without needing to pass it every time
+ *  transaction context that matches dapp-kit-core functionality
  */
 class TransactionContextManager {
-  #suiClient: SuiClient | null = null;
-  #network: string | null = null;
+  #state = $state<TransactionContextState>({
+    client: null as any,
+    network: "",
+    currentAccount: null,
+    supportedIntents: [],
+  });
 
   /**
-   * Initialize with the current SuiClient context
-   * Call this from component initialization
+   * Initialize with reactive updates
    */
   initialize() {
-    const context = getSuiClientContext();
-    this.#suiClient = context.client;
-    this.#network = context.network;
+    const suiContext = getSuiClientContext();
+
+    // React to changes in client/network
+    $effect(() => {
+      this.#state.client = suiContext.client;
+      this.#state.network = suiContext.network;
+    });
+
+    // React to wallet changes
+    $effect(() => {
+      this.#state.currentAccount = walletStore.currentAccount?.address || null;
+      this.#state.supportedIntents = walletStore.supportedIntents;
+    });
   }
 
-  /**
-   * Get the current SuiClient
-   */
   get client(): SuiClient {
-    if (!this.#suiClient) {
-      throw new Error(
-        "Transaction context not initialized. Call initialize() first."
-      );
+    if (!this.#state.client) {
+      throw new Error("Transaction context not initialized");
     }
-    return this.#suiClient;
+    return this.#state.client;
   }
 
-  /**
-   * Get the current network
-   */
   get network(): string {
-    if (!this.#network) {
-      throw new Error(
-        "Transaction context not initialized. Call initialize() first."
-      );
+    if (!this.#state.network) {
+      throw new Error("Transaction context not initialized");
     }
-    return this.#network;
+    return this.#state.network;
   }
 
-  /**
-   * Check if context is initialized
-   */
-  get isInitialized(): boolean {
-    return this.#suiClient !== null && this.#network !== null;
+  get currentAccount(): string | null {
+    return this.#state.currentAccount;
   }
 
-  /**
-   * Update context (useful for network switching)
-   */
-  update() {
-    this.initialize();
+  get supportedIntents(): string[] {
+    return this.#state.supportedIntents;
+  }
+
+  get chain(): `sui:${string}` {
+    return `sui:${this.network}`;
   }
 }
 
-// Create singleton instance
 export const transactionContext = new TransactionContextManager();

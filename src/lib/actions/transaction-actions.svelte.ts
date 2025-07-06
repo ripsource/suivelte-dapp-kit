@@ -8,9 +8,9 @@ import type {
   WalletAccount,
 } from "@mysten/wallet-standard";
 import { signTransaction } from "@mysten/wallet-standard";
-import { walletStore } from "../stores/wallet.svelte.js";
-import { getSuiClientContext } from "../stores/sui-client.svelte.js";
-import { transactionContext } from "../utils/transaction-context.svelte.js";
+import { walletStore } from "../stores/wallet.svelte";
+import { getSuiClientContext } from "../stores/sui-client.svelte";
+import { transactionContext } from "../utils/transaction-context.svelte";
 
 // Types for transaction actions
 interface SignTransactionArgs {
