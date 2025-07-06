@@ -15,6 +15,7 @@
   import WalletProvider from "$lib/components/providers/WalletProvider.svelte";
   import TransactionDemo from "$lib/components/demos/TransactionDemo.svelte";
   import { getFullnodeUrl } from "@mysten/sui/client";
+  import { transactionContext } from "$lib/utils/transaction-context.svelte";
 
   let showWalletModal = $state(false);
 

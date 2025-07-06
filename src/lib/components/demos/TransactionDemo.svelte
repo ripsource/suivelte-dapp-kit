@@ -11,7 +11,8 @@
     estimateTransactionGas,
   } from "../../utils/transaction-builders.js";
   import { formatSuiAmount, formatAddress } from "../../utils/format.js";
-  import { transactionContext } from "$lib/utils/fall-back-transaction-context.svelte.js";
+  import { transactionContext } from "$lib/utils/transaction-context.svelte.js";
+  import { onMount } from "svelte";
 
   // Form state
   let transferRecipient = $state("");
@@ -29,6 +30,10 @@
   // Reactive values
   const currentAccount = $derived(walletStore.currentAccount);
   const isConnected = $derived(walletStore.isConnected);
+  onMount(() => {
+    transactionContext.initialize();
+  });
+
   const suiContext = transactionContext;
 
   const isSigningTransaction = $derived(
