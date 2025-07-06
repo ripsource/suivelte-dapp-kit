@@ -1,9 +1,9 @@
-// wallet-actions.svelte.ts
+// src/lib/actions/wallet-actions.svelte.ts
 import type {
   WalletWithRequiredFeatures,
   WalletAccount,
 } from "@mysten/wallet-standard";
-import { walletStore } from "../stores/wallet.svelte";
+import { walletStore } from "../stores/wallet.svelte.js";
 
 interface ConnectWalletArgs {
   wallet: WalletWithRequiredFeatures;
@@ -117,6 +117,11 @@ class WalletActionsStore {
     }
 
     return accounts[0];
+  }
+
+  // Clear any connection errors
+  clearError() {
+    this.#state.error = null;
   }
 }
 

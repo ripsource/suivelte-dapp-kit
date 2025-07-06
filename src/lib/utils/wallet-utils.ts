@@ -11,7 +11,9 @@ import {
 /**
  * Get a unique identifier for a wallet (prefers id over name)
  */
-export function getWalletUniqueIdentifier(wallet?: Wallet): string | undefined {
+export function getWalletUniqueIdentifier(
+  wallet?: Wallet | null
+): string | undefined {
   return wallet?.id ?? wallet?.name;
 }
 
