@@ -1,0 +1,26 @@
+# Source files
+src/
+tests/
+*.test.*
+*.spec.*
+
+# Development files
+.svelte-kit/
+vite.config.ts
+svelte.config.js
+tsconfig.json
+.gitignore
+.npmignore
+
+# Development dependencies
+node_modules/
+npm-debug.log*
+
+# IDE and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Only include the built library
+!dist/
